@@ -124,9 +124,11 @@ function updatePrice() {
 cartButton.onclick = () => {
   updatePrice();
 
+  let Concatofstr = '';
 
   for (let index = 0; index < items.length; index++) {
     if (items[index].quantity != 0) {
+      Concatofstr = Concatofstr + items[index].name + ", ";
       console.log(
         "Item name: " +
           items[index].name +
@@ -135,6 +137,18 @@ cartButton.onclick = () => {
       );
     }
   }
+
+  let str = 
+  'Order Details' + 
+  Concatofstr +
+  'Total is' + 
+  finalDollars +
+  'dollars &' +
+  'finalCents' +
+  'cents'
+
+  window.open('https://wa.me/+919962581115?text=' + encodeURIComponent(str));
+
 
   console.log(
     "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
